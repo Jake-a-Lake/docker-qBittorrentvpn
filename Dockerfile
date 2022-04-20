@@ -3,7 +3,7 @@
 # Version 1.8
 
 FROM ubuntu:20.04
-MAINTAINER MarkusMcNugen
+MAINTAINER Steven Farmer
 
 VOLUME /downloads
 VOLUME /config
@@ -13,7 +13,7 @@ ENV DEBIAN_FRONTEND noninteractive
 RUN usermod -u 99 nobody
 
 # Update packages and install software
-RUN apt-get update \
+RUN apt update \
     && apt-get install -y --no-install-recommends apt-utils openssl \
     && apt-get install -y software-properties-common \
     && add-apt-repository ppa:qbittorrent-team/qbittorrent-stable \
