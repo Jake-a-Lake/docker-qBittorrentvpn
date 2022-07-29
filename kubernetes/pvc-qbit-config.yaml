@@ -1,0 +1,65 @@
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  annotations:
+    app: qbit
+    pv.kubernetes.io/bind-completed: "yes"
+  creationTimestamp: "2022-07-26T02:37:41Z"
+  finalizers:
+  - kubernetes.io/pvc-protection
+  managedFields:
+  - apiVersion: v1
+    fieldsType: FieldsV1
+    fieldsV1:
+      f:metadata:
+        f:annotations:
+          .: {}
+          f:app: {}
+      f:spec:
+        f:accessModes: {}
+        f:resources:
+          f:requests:
+            .: {}
+            f:storage: {}
+        f:storageClassName: {}
+        f:volumeMode: {}
+        f:volumeName: {}
+    manager: agent
+    operation: Update
+    time: "2022-07-26T02:37:41Z"
+  - apiVersion: v1
+    fieldsType: FieldsV1
+    fieldsV1:
+      f:metadata:
+        f:annotations:
+          f:pv.kubernetes.io/bind-completed: {}
+      f:status:
+        f:accessModes: {}
+        f:capacity:
+          .: {}
+          f:storage: {}
+        f:phase: {}
+    manager: k3s
+    operation: Update
+    time: "2022-07-26T02:37:41Z"
+  name: pvc-qbit-config
+  namespace: utils
+  resourceVersion: "1601586"
+  uid: 4ff5a06f-4ecd-4cb2-96e5-ff85d4be7293
+spec:
+  accessModes:
+  - ReadWriteOnce
+  - ReadWriteMany
+  resources:
+    requests:
+      storage: 1Gi
+  storageClassName: ""
+  volumeMode: Filesystem
+  volumeName: pv-qbit-config
+status:
+  accessModes:
+  - ReadWriteOnce
+  - ReadWriteMany
+  capacity:
+    storage: 1Gi
+  phase: Bound

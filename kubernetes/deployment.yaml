@@ -1,0 +1,253 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  annotations:
+    deployment.kubernetes.io/revision: "10"
+  creationTimestamp: "2022-07-26T13:26:42Z"
+  generation: 12
+  labels:
+    workload.user.cattle.io/workloadselector: apps.deployment-utils-qbert2
+  managedFields:
+  - apiVersion: apps/v1
+    fieldsType: FieldsV1
+    fieldsV1:
+      f:metadata:
+        f:annotations:
+          .: {}
+          f:deployment.kubernetes.io/revision: {}
+        f:labels:
+          .: {}
+          f:workload.user.cattle.io/workloadselector: {}
+      f:spec:
+        f:progressDeadlineSeconds: {}
+        f:replicas: {}
+        f:revisionHistoryLimit: {}
+        f:selector: {}
+        f:strategy:
+          f:rollingUpdate:
+            .: {}
+            f:maxSurge: {}
+            f:maxUnavailable: {}
+          f:type: {}
+        f:template:
+          f:metadata:
+            f:annotations:
+              .: {}
+              f:cattle.io/timestamp: {}
+            f:labels:
+              .: {}
+              f:workload.user.cattle.io/workloadselector: {}
+          f:spec:
+            f:affinity: {}
+            f:containers:
+              k:{"name":"container-0"}:
+                .: {}
+                f:env:
+                  .: {}
+                  k:{"name":"INCOMING_PORT_ENV"}:
+                    .: {}
+                    f:name: {}
+                    f:value: {}
+                  k:{"name":"LAN_NETWORK"}:
+                    .: {}
+                    f:name: {}
+                    f:value: {}
+                  k:{"name":"NAME_SERVERS"}:
+                    .: {}
+                    f:name: {}
+                    f:value: {}
+                  k:{"name":"PGID"}:
+                    .: {}
+                    f:name: {}
+                    f:value: {}
+                  k:{"name":"PUID"}:
+                    .: {}
+                    f:name: {}
+                    f:value: {}
+                  k:{"name":"VNP_ENABLED"}:
+                    .: {}
+                    f:name: {}
+                    f:value: {}
+                  k:{"name":"WEBUI_PORT_ENV"}:
+                    .: {}
+                    f:name: {}
+                    f:value: {}
+                f:image: {}
+                f:imagePullPolicy: {}
+                f:name: {}
+                f:ports:
+                  .: {}
+                  k:{"containerPort":8080,"protocol":"TCP"}:
+                    .: {}
+                    f:containerPort: {}
+                    f:name: {}
+                    f:protocol: {}
+                  k:{"containerPort":8999,"protocol":"TCP"}:
+                    .: {}
+                    f:containerPort: {}
+                    f:name: {}
+                    f:protocol: {}
+                f:resources: {}
+                f:terminationMessagePath: {}
+                f:terminationMessagePolicy: {}
+                f:volumeMounts:
+                  .: {}
+                  k:{"mountPath":"/config"}:
+                    .: {}
+                    f:mountPath: {}
+                    f:name: {}
+                  k:{"mountPath":"downloads"}:
+                    .: {}
+                    f:mountPath: {}
+                    f:name: {}
+            f:dnsPolicy: {}
+            f:restartPolicy: {}
+            f:schedulerName: {}
+            f:securityContext: {}
+            f:terminationGracePeriodSeconds: {}
+            f:volumes:
+              .: {}
+              k:{"name":"downloads"}:
+                .: {}
+                f:name: {}
+                f:nfs:
+                  .: {}
+                  f:path: {}
+                  f:server: {}
+              k:{"name":"qbit-config"}:
+                .: {}
+                f:name: {}
+                f:nfs:
+                  .: {}
+                  f:path: {}
+                  f:server: {}
+    manager: agent
+    operation: Update
+    time: "2022-07-26T13:26:42Z"
+  - apiVersion: apps/v1
+    fieldsType: FieldsV1
+    fieldsV1:
+      f:metadata:
+        f:annotations:
+          f:deployment.kubernetes.io/revision: {}
+      f:status:
+        f:conditions:
+          .: {}
+          k:{"type":"Available"}:
+            .: {}
+            f:type: {}
+          k:{"type":"Progressing"}:
+            .: {}
+            f:type: {}
+    manager: k3s
+    operation: Update
+    time: "2022-07-27T13:29:05Z"
+  - apiVersion: apps/v1
+    fieldsType: FieldsV1
+    fieldsV1:
+      f:status:
+        f:conditions:
+          k:{"type":"Available"}:
+            f:lastTransitionTime: {}
+            f:lastUpdateTime: {}
+            f:message: {}
+            f:reason: {}
+            f:status: {}
+          k:{"type":"Progressing"}:
+            f:lastTransitionTime: {}
+            f:lastUpdateTime: {}
+            f:message: {}
+            f:reason: {}
+            f:status: {}
+        f:observedGeneration: {}
+    manager: k3s
+    operation: Update
+    time: "2022-07-29T16:21:34Z"
+  name: qbert2
+  namespace: utils
+  resourceVersion: "2412377"
+  uid: 63ef6997-4eff-4afc-bbaa-3c51ad6ea6cb
+spec:
+  progressDeadlineSeconds: 600
+  replicas: 0
+  revisionHistoryLimit: 10
+  selector:
+    matchLabels:
+      workload.user.cattle.io/workloadselector: apps.deployment-utils-qbert2
+  strategy:
+    rollingUpdate:
+      maxSurge: 25%
+      maxUnavailable: 25%
+    type: RollingUpdate
+  template:
+    metadata:
+      annotations:
+        cattle.io/timestamp: "2022-07-27T13:27:21Z"
+      creationTimestamp: null
+      labels:
+        workload.user.cattle.io/workloadselector: apps.deployment-utils-qbert2
+    spec:
+      affinity: {}
+      containers:
+      - env:
+        - name: INCOMING_PORT_ENV
+          value: "8999"
+        - name: LAN_NETWORK
+          value: 192.168.2.0/24
+        - name: NAME_SERVERS
+          value: 8.8.8.8,8.8.4.4
+        - name: PGID
+          value: "100"
+        - name: PUID
+          value: "99"
+        - name: VNP_ENABLED
+          value: "yes"
+        - name: WEBUI_PORT_ENV
+          value: "8080"
+        image: registry.jakealake.org/qbit:latest
+        imagePullPolicy: Always
+        name: container-0
+        ports:
+        - containerPort: 8080
+          name: webui
+          protocol: TCP
+        - containerPort: 8999
+          name: service
+          protocol: TCP
+        resources: {}
+        terminationMessagePath: /dev/termination-log
+        terminationMessagePolicy: File
+        volumeMounts:
+        - mountPath: downloads
+          name: downloads
+        - mountPath: /config
+          name: qbit-config
+      dnsPolicy: ClusterFirst
+      restartPolicy: Always
+      schedulerName: default-scheduler
+      securityContext: {}
+      terminationGracePeriodSeconds: 30
+      volumes:
+      - name: qbit-config
+        nfs:
+          path: /volume3/container-storage/qbit/config
+          server: 192.168.2.207
+      - name: downloads
+        nfs:
+          path: /volumeUSB1/usbshare1-2/TORRENTS
+          server: 192.168.2.207
+status:
+  conditions:
+  - lastTransitionTime: "2022-07-29T16:21:34Z"
+    lastUpdateTime: "2022-07-29T16:21:34Z"
+    message: Deployment has minimum availability.
+    reason: MinimumReplicasAvailable
+    status: "True"
+    type: Available
+  - lastTransitionTime: "2022-07-29T16:21:34Z"
+    lastUpdateTime: "2022-07-29T16:21:34Z"
+    message: ReplicaSet "qbert2-598788ffb4" has successfully progressed.
+    reason: NewReplicaSetAvailable
+    status: "True"
+    type: Progressing
+  observedGeneration: 12

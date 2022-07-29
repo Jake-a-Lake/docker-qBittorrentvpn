@@ -1,0 +1,61 @@
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  annotations:
+    pv.kubernetes.io/bind-completed: "yes"
+  creationTimestamp: "2022-07-26T05:17:57Z"
+  finalizers:
+  - kubernetes.io/pvc-protection
+  managedFields:
+  - apiVersion: v1
+    fieldsType: FieldsV1
+    fieldsV1:
+      f:spec:
+        f:accessModes: {}
+        f:resources:
+          f:requests:
+            .: {}
+            f:storage: {}
+        f:storageClassName: {}
+        f:volumeMode: {}
+        f:volumeName: {}
+    manager: agent
+    operation: Update
+    time: "2022-07-26T05:17:57Z"
+  - apiVersion: v1
+    fieldsType: FieldsV1
+    fieldsV1:
+      f:metadata:
+        f:annotations:
+          .: {}
+          f:pv.kubernetes.io/bind-completed: {}
+      f:status:
+        f:accessModes: {}
+        f:capacity:
+          .: {}
+          f:storage: {}
+        f:phase: {}
+    manager: k3s
+    operation: Update
+    time: "2022-07-26T05:18:03Z"
+  name: pvc-qbit-thor
+  namespace: utils
+  resourceVersion: "1639618"
+  uid: f843421e-3222-4995-93ec-74479961509f
+spec:
+  accessModes:
+  - ReadWriteOnce
+  - ReadWriteMany
+  resources:
+    requests:
+      storage: 100Gi
+  storageClassName: ""
+  volumeMode: Filesystem
+  volumeName: pv-qbit-thor
+status:
+  accessModes:
+  - ReadWriteOnce
+  - ReadWriteMany
+  capacity:
+    storage: 100Gi
+  phase: Bound
