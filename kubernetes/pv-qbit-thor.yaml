@@ -1,0 +1,70 @@
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  annotations:
+    pv.kubernetes.io/bound-by-controller: "yes"
+  creationTimestamp: "2022-07-26T05:16:52Z"
+  finalizers:
+  - kubernetes.io/pv-protection
+  managedFields:
+  - apiVersion: v1
+    fieldsType: FieldsV1
+    fieldsV1:
+      f:spec:
+        f:accessModes: {}
+        f:capacity:
+          .: {}
+          f:storage: {}
+        f:nfs:
+          .: {}
+          f:path: {}
+          f:server: {}
+        f:persistentVolumeReclaimPolicy: {}
+        f:volumeMode: {}
+    manager: agent
+    operation: Update
+    time: "2022-07-26T05:16:52Z"
+  - apiVersion: v1
+    fieldsType: FieldsV1
+    fieldsV1:
+      f:metadata:
+        f:annotations:
+          .: {}
+          f:pv.kubernetes.io/bound-by-controller: {}
+      f:spec:
+        f:claimRef:
+          .: {}
+          f:apiVersion: {}
+          f:kind: {}
+          f:name: {}
+          f:namespace: {}
+          f:resourceVersion: {}
+          f:uid: {}
+      f:status:
+        f:phase: {}
+    manager: k3s
+    operation: Update
+    time: "2022-07-26T05:17:57Z"
+  name: pv-qbit-thor
+  resourceVersion: "1639591"
+  uid: ff1dd138-5bb8-41af-a000-49797dd8da95
+spec:
+  accessModes:
+  - ReadWriteOnce
+  - ReadWriteMany
+  capacity:
+    storage: 100Gi
+  claimRef:
+    apiVersion: v1
+    kind: PersistentVolumeClaim
+    name: pvc-qbit-thor
+    namespace: utils
+    resourceVersion: "1639588"
+    uid: f843421e-3222-4995-93ec-74479961509f
+  nfs:
+    path: /
+    server: 192.168.2.207:/volumeUSB1/usbshare1-2/TORRENTS
+  persistentVolumeReclaimPolicy: Retain
+  volumeMode: Filesystem
+status:
+  phase: Bound
